@@ -35,7 +35,9 @@ export async function startWhatsApp() {
       const { connection, lastDisconnect, qr } = events["connection.update"];
       if (qr) {
         logger.info("QR diterbitkan. Scan menggunakan WhatsApp.");
-        console.log(await QRCode.toString(qr, { type: "terminal" }));
+        console.log(
+          await QRCode.toString(qr, { type: "terminal", small: true })
+        );
       }
       if (connection === "open") {
         logger.info("✅ Tersambung ke WhatsApp");
