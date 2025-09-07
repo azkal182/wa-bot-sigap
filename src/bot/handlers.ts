@@ -74,6 +74,8 @@ export async function handleBasicCommands(
       const url = new URL(INFO_URL);
       url.searchParams.set("phone_whatsapp", phone); // ex: 087833372003
 
+      logger.info(`Requesting INFO API: GET ${url.toString()}`);
+
       const res = await fetch(url.toString(), {
         method: "GET",
         headers: { Accept: "application/json" },
@@ -127,6 +129,8 @@ export async function handleBasicCommands(
     try {
       const url = new URL(RESET_URL);
       url.searchParams.set("phone_whatsapp", phone);
+
+      logger.info(`Requesting RESET API: GET ${url.toString()}`);
 
       const res = await fetch(url.toString(), {
         method: "GET",
